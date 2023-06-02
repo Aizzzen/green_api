@@ -1,0 +1,25 @@
+.sendMessage {
+    background: #f3f3f3;
+    padding: 10px;
+}
+
+.newMessage {
+    flex: 1;
+    border: 0;
+    margin: 0 10px;
+    border-radius: 5px;
+    padding: 10px;
+    height: 40px;
+    resize: none;
+}
+
+.newMessage:focus {
+    outline: none;
+}
+
+.iconSize {
+    width: 24px;
+    height: 24px;
+    margin: 0 10px;
+    /*color: #888;*/
+}

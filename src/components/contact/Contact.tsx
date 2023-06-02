@@ -1,10 +1,10 @@
-import React from 'react';
-// @ts-ignore
-import styles from "./Contact.module.css";
-// @ts-ignore
+import React, {FC} from 'react';
+
 import Avatar from "../../images/avatar.png"
 
-export const Contact = () => {
+import styles from "./Contact.module.css";
+
+export const Contact: FC = () => {
     return (
         <div className={`${styles.contact} flex rel aic`}>
             <div className={`${styles.logo} rel flex aic`}>
@@ -14,7 +14,7 @@ export const Contact = () => {
             </div>
             <div className={`${styles.meta} rel flex aic`}>
                 <div className={`${styles.info} rel flex col`}>
-                    <h2 className={`${styles.name} s14 wordwrap`}>Yunus Gadamurov</h2>
+                    <h2 className={`${styles.name} b s14 wordwrap`}>Yunus Gadamurov</h2>
                     <h2 className={`${styles.msg} s13 c333 wordwrap`}>Ты закончил тестовое</h2>
                 </div>
                 <div className={`${styles.extra} rel flex col aic`}>

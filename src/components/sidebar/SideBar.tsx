@@ -1,17 +1,14 @@
-import React from 'react';
-// @ts-ignore
+import React, {FC} from 'react';
+
 import Avatar from "../../images/avatar.png"
-// @ts-ignore
 import styles from "./SideBar.module.css";
-// @ts-ignore
 import ChatIcon from "../../images/message.svg";
-// @ts-ignore
 import MoreIcon from "../../images/more_vert.svg";
-// @ts-ignore
 import SearchIcon from "../../images/search.svg";
+
 import {Contact} from "../contact/Contact";
 
-export const SideBar = () => {
+export const SideBar: FC = () => {
     return (
         <div className={`${styles.sidebar} rel flex col`}>
             {/*HEADER*/}

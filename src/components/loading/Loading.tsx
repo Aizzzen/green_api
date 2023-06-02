@@ -1,8 +1,8 @@
-import React from 'react';
-// @ts-ignore
+import React, {FC} from 'react';
+
 import styles from  "./Loading.module.css";
 
-export const Loading = () => {
+export const Loading: FC = () => {
     return (
         <div className={`${styles.loading} def-1 def-2`}>
             <img

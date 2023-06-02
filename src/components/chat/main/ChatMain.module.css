@@ -1,0 +1,9 @@
+.messages {
+    border-top: 1px #ddd solid;
+    border-bottom: 1px #ddd solid;
+    flex: 1;
+    background: #efeae2;
+    padding: 20px 30px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}

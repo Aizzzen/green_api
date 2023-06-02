@@ -1,11 +1,17 @@
-import React from 'react';
-// @ts-ignore
+import React, {FC} from 'react';
+
 import styles from "./Chat.module.css";
 
-export const Chat = () => {
+import {ChatHeader} from "./header/ChatHeader";
+import {ChatInput} from "./input/ChatInput";
+import {ChatMain} from "./main/ChatMain";
+
+export const Chat: FC = () => {
     return (
-        <div className={styles.chat}>
-            Chat
+        <div className={`${styles.chat} rel flex col`}>
+            <ChatHeader/>
+            <ChatMain/>
+            <ChatInput/>
         </div>
     );
 };

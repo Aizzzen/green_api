@@ -1,0 +1,76 @@
+.messageItem {
+    flex: 1;
+    margin: 3px 0;
+    justify-content: flex-end;
+}
+
+.content {
+    background: #fff;
+    display: table;
+    padding: 7px 60px 7px 10px;
+    border-radius: 8px;
+    max-width: 75%;
+}
+
+.content:before {
+    content: "";
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    left: -10px;
+    bottom: 4px;
+    z-index: 1;
+    background: #fff;
+    border-radius: 20px;
+}
+
+.content:after {
+    content: "";
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    left: -15px;
+    bottom: 9px;
+    z-index: 1;
+    background: #efeae2;
+    border-radius: 20px;
+}
+
+.stamp {
+    bottom: 7px;
+    right: 7px;
+}
+
+.mine {
+    background: #d9fdd3;
+    display: table;
+    padding: 7px 60px 7px 10px;
+    border-radius: 8px;
+    max-width: 75%;
+}
+
+.mine:before {
+    content: "";
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    left: auto;
+    right: -10px;
+    bottom: 4px;
+    z-index: 1;
+    background: #d9fdd3;
+    border-radius: 20px;
+}
+
+.mine:after {
+    content: "";
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    left: auto;
+    right: -15px;
+    bottom: 9px;
+    z-index: 1;
+    background: #efeae2;
+    border-radius: 20px;
+}
