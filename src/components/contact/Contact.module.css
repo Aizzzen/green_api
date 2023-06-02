@@ -1,0 +1,54 @@
+.logo {
+    width: 50px;
+}
+
+.user {
+    width: 35px;
+    height: 35px;
+}
+
+.user img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.contact {
+    padding: 5px 10px;
+}
+
+.meta {
+    flex: 1 1;
+    border-bottom: 1px #f1f1f1 solid;
+    padding: 0 0 10px 0;
+}
+
+.info {
+    flex: 1;
+}
+
+.name {
+
+}
+
+.msg {
+
+}
+
+.extra {
+
+}
+
+.stamp {
+
+}
+
+.badge {
+    background: #2fc32f;
+    max-width: 32px;
+    text-align: center;
+    font-size: 12px;
+    border-radius: 40px;
+    padding: 0 3px;
+    margin-top: 5px;
+}

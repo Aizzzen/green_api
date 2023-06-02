@@ -1,8 +1,16 @@
+* {
+  font-weight: 600;
+  margin: 0;
+  padding: 0;
+}
+
 body {
+  background: #e2e1de;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
+  font-family: 'Open Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -10,4 +18,99 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+input {
+  outline: none;
+}
+
+img {
+  cursor: pointer;
+}
+
+/*abs*/
+.def-1 {
+  position: absolute;
+}
+
+.def-1 .fill {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+/*abc*/
+.def-2 {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.fixed {
+  position: fixed;
+}
+
+.fill {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.flex {
+  display: flex;
+  flex-direction: row;
+}
+
+.aic {
+  align-items: center;
+}
+
+.col {
+  flex-direction: column !important;
+}
+.rel {
+  position: relative;
+}
+
+.s11 {
+  font-size: 11px;
+}
+.s12 {
+  font-size: 12px;
+}
+.s13 {
+  font-size: 13px;
+}
+.s14 {
+  font-size: 14px;
+}
+.s15 {
+  font-size: 15px;
+}
+.s16 {
+  font-size: 16px;
+}
+
+.b {
+  font-weight: 600;
+}
+
+.cfff {
+  color: #fff;
+}
+.c777 {
+  color: #777;
+}
+.c333 {
+  color: #333;
+}
+
+.wordwrap {
+  word-wrap: break-word;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 99%;
 }
