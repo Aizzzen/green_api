@@ -6,7 +6,7 @@ export const ChatMain: FC = () => {
     return (
         <div className={`${styles.messages} rel flex col`}>
             {[1,1,1,1,1,1,1,1,1,1,1,11,1,1,1].map((el, i) =>
-                <Message dir={i % 2 === 0 ? "mine" : ""} />
+                <Message order={i % 2 === 0 ? "mine" : ""} />
             )}
         </div>
     );

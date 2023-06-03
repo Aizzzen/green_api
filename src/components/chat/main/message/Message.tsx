@@ -1,14 +1,14 @@
 import React, {FC} from 'react';
 import styles from "./Message.module.css";
 
-interface Message {
-    dir: string;
+interface MessageProps {
+    order: string;
 }
 
-export const Message: FC<Message> = ({dir = ""}) => {
+export const Message: FC<MessageProps> = ({order}) => {
     return (
         <>
-            {dir === "mine" ? (
+            {order === "mine" ? (
                 <div className={`${styles.messageItem} flex rel`}>
                     <div className={`${styles.mine} rel`}>
                         <h2 className={`${styles.name} s14 b`}>Yunus</h2>

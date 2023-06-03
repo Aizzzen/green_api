@@ -8,7 +8,7 @@ import {Chat} from "../../components/chat/Chat";
 export const Main: FC = () => {
     return (
         <>
-            <div className={styles.greenBackLine}></div>
+            <div className="greenBackLine"></div>
             <div className={`${styles.main} fixed flex`}>
                 <SideBar/>
                 <Chat/>
