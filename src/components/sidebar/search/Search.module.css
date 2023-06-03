@@ -1,0 +1,36 @@
+.search {
+    border-top: 1px #ddd solid;
+    border-bottom: 1px #ddd solid;
+    padding: 7px 15px;
+}
+
+.search_box {
+    background: #fff;
+    border: 1px #eaeaea solid;
+    flex: 1;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.search_box img {
+    width: 40px;
+    border: 0;
+    background: #fff;
+    padding: 5px;
+    font-size: 22px;
+    color: #888;
+}
+
+.search_box img:hover {
+    color: #222;
+}
+
+.search_box input {
+    flex: 1;
+    border: 0;
+}
+
+.icon_size {
+    width: 24px;
+    height: 24px;
+}

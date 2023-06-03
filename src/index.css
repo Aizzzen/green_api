@@ -2,6 +2,7 @@
   --primary: #00a884;
   --line-height: 24px;
   --gray: #363636;
+  --border-radius: 3px;
 }
 
 * {

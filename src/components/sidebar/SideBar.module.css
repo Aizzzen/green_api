@@ -42,46 +42,55 @@
     padding-right: 20px;
 }
 
-.iconSize {
+.icon_size {
     width: 24px;
     height: 24px;
 }
 
-.search {
-    border-top: 1px #ddd solid;
-    border-bottom: 1px #ddd solid;
-    padding: 7px 15px;
-}
-
-.searchBox {
-    background: #fff;
-    border: 1px #eaeaea solid;
-    flex: 1;
-    border-radius: 5px;
-    overflow: hidden;
-}
-
-.searchBox img {
-    width: 40px;
-    border: 0;
-    background: #fff;
-    padding: 5px;
-    font-size: 22px;
-    color: #888;
-}
-
-.searchBox img:hover {
-    color: #222;
-}
-
-.searchBox input {
-    flex: 1;
-    border: 0;
-}
-
-.contactsList {
+.contacts_list {
     flex: 1;
     overflow-x: hidden;
     overflow-y: auto;
     height: calc(100vh - 143px);
+}
+
+.add_contact_bar {
+    background: #fff;
+    width: 500px;
+    border-right: 1px #ddd solid;
+    animation-duration: .5s;
+    animation-name: slidein;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+.add_contact_header {
+    /*height: 111px;*/
+    height: 11.8vh;
+    background-color: var(--primary);
+}
+
+@keyframes slidein {
+    from {
+        transform: translateX(-100%);
+    }
+
+    to {
+        transform: translateX(0%);
+    }
+}
+
+.header_content {
+    display: flex;
+    flex-direction: row;
+    padding: 55px 0 0 30px;
+}
+
+.header_content p {
+    color: #fff;
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+.header_content img {
+    padding-top: 10px !important;
 }

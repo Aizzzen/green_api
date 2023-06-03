@@ -2,7 +2,7 @@
     background: #fff;
     width: 600px;
     margin: -80px auto;
-    border-radius: 10px;
+    border-radius: var(--border-radius);
     padding: 50px;
 }
 
@@ -21,7 +21,7 @@
     width: 530px;
     position: relative;
     border: 3px solid #bbbbbb;
-    border-radius: 8px;
+    border-radius: var(--border-radius);
     margin: 32px;
 }
 
@@ -78,7 +78,7 @@
     font-size: 16px;
     line-height: var(--line-height);
     padding: 10px 15px;
-    border-radius: 5px;
+    border-radius: var(--border-radius);
     background-color: var(--primary);
     color: #fff;
 }
