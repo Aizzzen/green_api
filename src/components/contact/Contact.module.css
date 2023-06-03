@@ -3,11 +3,11 @@
 }
 
 .contact:hover, .contact:focus {
-    background: #f3f3f3;
+    background: #f0f2f5;
 }
 
 .contact_active {
-    background: #f3f3f3;
+    background: #f0f2f5;
 }
 
 .logo {

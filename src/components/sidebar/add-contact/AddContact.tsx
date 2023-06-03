@@ -13,7 +13,6 @@ interface AddContactProps {
 export const AddContact: FC<AddContactProps> = ({setOpen, chats, setChats}) => {
     return (
         <div className={`${styles.add_contact_bar}`}>
-            {/*HEADER*/}
             <div className={`${styles.add_contact_header}`}>
                 <div className={`${styles.header_content}`}>
                     <img onClick={() => setOpen(false)} className={styles.icon_size} src={GoBackIcon} alt=""/>
@@ -21,10 +20,8 @@ export const AddContact: FC<AddContactProps> = ({setOpen, chats, setChats}) => {
                 </div>
             </div>
 
-            {/*SEARCH*/}
             <Search setOpen={setOpen} chats={chats} setChats={setChats} placeholder={"Поиск контактов"}/>
 
-            {/*CONTACT*/}
             <div className={`${styles.add_contact_list}`}>
 
             </div>

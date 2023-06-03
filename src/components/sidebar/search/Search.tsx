@@ -28,8 +28,13 @@ export const Search: FC<SearchProps> = ({placeholder, chats, setChats, setOpen})
                     onChange={e => setSearch(e.target.value)}
                     onKeyPress={e => {
                         if(e.key === "Enter") {
-                            setChats(
-                                [...chats, {"name": search, "msg": "", "stamp": ""}]
+                            chats.unshift(
+                                {
+                                    "id": `${Math.random()}`.substr(2),
+                                    "name": search,
+                                    "msg": [],
+                                    "stamp": `${new Date().toLocaleTimeString('ru-RU')}`
+                                }
                             )
                             setOpen(false)
                         }

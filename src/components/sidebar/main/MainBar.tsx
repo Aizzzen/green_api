@@ -7,7 +7,7 @@ import {Search} from "../search/Search";
 import {Contact} from "../../contact/Contact";
 
 
-type ChatItem = {
+export type ChatItem = {
     id: number;
     name: string;
     msg: string;
@@ -23,8 +23,7 @@ interface MainBarProps {
 export const MainBar: FC<MainBarProps> = ({open, setOpen, chats}) => {
     const [active, setActive] = useState(null)
     return (
-        <div className={`${styles.sidebar} rel ${open ? 'none' : 'flex'} col`}>
-            {/*HEADER*/}
+        <div className={`${styles.sidebar}  ${open ? 'none' : 'flex rel col'}`}>
             <div className={`${styles.header} flex`}>
                 <div className={`${styles.logo} rel flex aic`}>
                     <a className={styles.user} href="/">
@@ -37,20 +36,19 @@ export const MainBar: FC<MainBarProps> = ({open, setOpen, chats}) => {
                 </div>
             </div>
 
-            {/*SEARCH*/}
             <Search placeholder={"Поиск или новый чат"} />
 
-            {/*CONTACT*/}
-            {/*TODO: типы для того что ниже*/}
             <div className={`${styles.contacts_list} rel`}>
-                {chats.map(({id, name, msg, stamp}: ChatItem) =>
+                {chats
+                    .sort((a: any, b: any) => b - a)
+                    .map(({id, name, msg, stamp}: ChatItem) =>
                     <Contact
                         id={id}
                         key={id}
                         isActive={active === id}
                         setActive={setActive}
                         name={name}
-                        msg={msg}
+                        msg={msg[msg.length-1]}
                         stamp={stamp}
                     />
                 )}

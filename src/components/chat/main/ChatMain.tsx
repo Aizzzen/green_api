@@ -2,12 +2,21 @@ import React, {FC} from 'react';
 import styles from "./ChatMain.module.css";
 import {Message} from "./message/Message";
 
-export const ChatMain: FC = () => {
+interface ChatMainProps {
+    name?: string;
+    msg?: any;
+}
+
+export const ChatMain: FC<ChatMainProps> = ({name, msg}) => {
     return (
         <div className={`${styles.messages} rel flex col`}>
-            {[1,1,1,1,1,1,1,1,1,1,1,11,1,1,1].map((el, i) =>
-                <Message key={i} order={i % 2 === 0 ? "mine" : ""} />
+            {msg?.map((el: any, i: number) =>
+                <Message name={name} msg={el} key={i} order={"mine"} />
             )}
+
+            {/*{[1,1,1,1,1,1,1,1,1,1,1,11,1,1,1].map((el, i) =>*/}
+            {/*    <Message name={name} msg={msg} key={i} order={i % 2 === 0 ? "mine" : ""} />*/}
+            {/*)}*/}
         </div>
     );
 };

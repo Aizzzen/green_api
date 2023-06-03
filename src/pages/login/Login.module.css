@@ -17,7 +17,7 @@
     margin: 20px 0;
 }
 
-.inputGroup {
+.input_group {
     width: 530px;
     position: relative;
     border: 3px solid #bbbbbb;
@@ -25,7 +25,7 @@
     margin: 32px;
 }
 
-.inputGroup input {
+.input_group input {
     padding: 16px 24px;
     border: none;
     background-color: transparent;
@@ -35,15 +35,15 @@
     line-height: 24px;
 }
 
-.inputGroup:hover, .inputGroup:focus-within {
+.input_group:hover, .input_group:focus-within {
     border-color: var(--primary);
 }
 
-.inputGroup input:focus, .inputGroup:hover input {
+.input_group input:focus, .input_group:hover input {
     color: var(--primary);
 }
 
-.inputGroup label {
+.input_group label {
     position: absolute;
     background-color: transparent;
     padding: 16px 24px;
@@ -55,12 +55,12 @@
     cursor: text;
 }
 
-.inputGroup:hover label {
+.input_group:hover label {
     color: var(--primary);
 }
 
-.inputGroup:focus-within label,
-.inputGroup input:not(:placeholder-shown) ~ label {
+.input_group:focus-within label,
+.input_group input:not(:placeholder-shown) ~ label {
     padding: 0 8px;
     background-color: #ffffff;
     top: -12px;
@@ -69,7 +69,7 @@
     color: var(--gray);
 }
 
-.subButton {
+.sub_button {
     cursor: pointer;
     position: relative;
     top: 0;

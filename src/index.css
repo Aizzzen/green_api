@@ -71,6 +71,9 @@ img {
 .rel {
   position: relative;
 }
+.none {
+  display: none;
+}
 
 .s11 {
   font-size: 11px;

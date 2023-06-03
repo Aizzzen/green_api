@@ -3,6 +3,7 @@ import React, {FC} from 'react';
 import Avatar from "../../images/avatar.png"
 
 import styles from "./Contact.module.css";
+import {useAppContext} from "../../context/ContextProvider";
 
 interface ContactProps {
     id: number;
@@ -21,9 +22,17 @@ export const Contact: FC<ContactProps> = ({
                                               isActive,
                                               setActive
 }) => {
+    const {setSelectedChat} = useAppContext()
+
+    const handleClick = (id: number) => {
+        setSelectedChat(id)
+        setActive(id)
+    }
+
     return (
         <div
-            onClick={() => setActive(id)}
+            onClick={() => handleClick(id)}
+            // onClick={() => setActive(id)}
             className={`${styles.contact} ${isActive ? styles.contact_active : ""} flex rel aic`}
         >
             <div className={`${styles.logo} rel flex aic`}>
@@ -42,7 +51,7 @@ export const Contact: FC<ContactProps> = ({
                 {
                     stamp &&
                     <div className={`${styles.extra} rel flex col aic`}>
-                        <h2 className={`${styles.stamp} s11 c777`}>{stamp}</h2>
+                        <h2 className={`${styles.stamp} s11 c777`}>{stamp.substr(0, 5)}</h2>
                         <div className={`${styles.badge} rel s12 cfff`}>
                             99+
                         </div>

@@ -1,6 +1,5 @@
-.messageItem {
-    flex: 1;
-    margin: 3px 0;
+.message_item {
+    margin: 5px 0;
     justify-content: flex-end;
 }
 

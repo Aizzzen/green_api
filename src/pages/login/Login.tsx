@@ -25,15 +25,15 @@ export const Login: FC = () => {
                 <h2 className={`${styles.title} s16`}>Логин в WhatsApp</h2>
 
                 {/*<form action="" onSubmit={handleClick}>*/}
-                    <div className={styles.inputGroup}>
+                    <div className={styles.input_group}>
                         <input value={id} onChange={(e) => setId(e.target.value)} className="s16" type="text" name="" id="text1" placeholder=" " autoComplete="off"/>
                         <label htmlFor="text1">IdInstance</label>
                     </div>
-                    <div className={styles.inputGroup}>
+                    <div className={styles.input_group}>
                         <input value={token} onChange={(e) => setToken(e.target.value)} className="s16" type="text" name="" id="text2" placeholder=" " autoComplete="off"/>
                         <label htmlFor="text2">ApiTokenInstance</label>
                     </div>
-                    <button onClick={handleClick} className={`${styles.subButton} b`}>Авторизоваться</button>
+                    <button onClick={handleClick} className={`${styles.sub_button} b`}>Авторизоваться</button>
                 {/*</form>*/}
             </div>
         </>

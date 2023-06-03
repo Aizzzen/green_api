@@ -1,9 +1,9 @@
-.sendMessage {
-    background: #f3f3f3;
+.send_message {
+    background: #f0f2f5;
     padding: 10px;
 }
 
-.newMessage {
+.new_message {
     flex: 1;
     border: 0;
     margin: 0 10px;
@@ -13,7 +13,7 @@
     resize: none;
 }
 
-.newMessage:focus {
+.new_message:focus {
     outline: none;
 }
 

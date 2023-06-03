@@ -38,3 +38,8 @@
 .header_content img {
     padding-top: 10px !important;
 }
+
+.icon_size {
+    width: 24px;
+    height: 24px;
+}
