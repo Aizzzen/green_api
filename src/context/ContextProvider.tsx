@@ -71,7 +71,6 @@ export const AppContextProvider: FC<AppContextProps> = ({children}) => {
             "message": message,
         }
         fetch(`https://api.green-api.com/waInstance${id}/sendMessage/${token}`, {
-            mode: 'no-cors',
             method: "POST",
             headers: {
                 "Content-Type": "application/json;charset=utf-8"

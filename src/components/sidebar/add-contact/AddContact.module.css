@@ -2,7 +2,7 @@
     background: #fff;
     width: 500px;
     border-right: 1px #ddd solid;
-    animation-duration: .3s;
+    animation-duration: .2s;
     animation-name: slidein;
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
 }

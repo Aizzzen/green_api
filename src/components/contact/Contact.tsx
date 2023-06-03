@@ -45,7 +45,9 @@ export const Contact: FC<ContactProps> = ({
                     <h2 className={`${styles.name} b s14 wordwrap`}>{name}</h2>
                     {
                         msg &&
-                        <h2 className={`${styles.msg} s13 c333 wordwrap`}>{msg}</h2>
+                        <h2 className={`${styles.msg} s13 c333 wordwrap`}>
+                            {msg.length > 30 ? msg.substr(0, 30) + "......" : msg}
+                        </h2>
                     }
                 </div>
                 {

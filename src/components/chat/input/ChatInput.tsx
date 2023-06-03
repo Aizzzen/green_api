@@ -18,11 +18,9 @@ export const ChatInput: FC<ChatInputProps> = ({name, msg}) => {
     const handleChange = (e: any): any => {
         setText(e.target.value)
         console.log(text)
-        console.log(msg)
     }
 
     const handleClick = () => {
-        // https://api.green-api.com/waInstance{{idInstance}}/sendMessage/{{apiTokenInstance}}
         msg.push(text)
         sendMessage(name, text)
         setText("")
