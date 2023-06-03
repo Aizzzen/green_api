@@ -8,9 +8,14 @@ function App() {
     const isAuth = false
     return (
         <div>
-            {loaded ? <>
-                {isAuth ? <Main/> : <Login/>}
-            </> : <Loading/>}
+            {loaded
+                ?
+                <>
+                    {isAuth ? <Main/> : <Login/>}
+                </>
+                :
+                <Loading/>
+            }
         </div>
     );
 }

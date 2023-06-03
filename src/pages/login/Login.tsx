@@ -14,13 +14,14 @@ export const Login: FC = () => {
 
                 <form action="">
                     <div className={styles.inputGroup}>
-                        <input className="s16" type="text" name="" id="text1" placeholder=" "/>
+                        <input className="s16" type="text" name="" id="text1" placeholder=" " autoComplete="off"/>
                         <label htmlFor="text1">IdInstance</label>
                     </div>
                     <div className={styles.inputGroup}>
-                        <input className="s16" type="text" name="" id="text2" placeholder=" "/>
+                        <input className="s16" type="text" name="" id="text2" placeholder=" " autoComplete="off"/>
                         <label htmlFor="text2">ApiTokenInstance</label>
                     </div>
+                    <button type="submit" className={`${styles.subButton} b`}>Авторизоваться</button>
                 </form>
             </div>
         </>
