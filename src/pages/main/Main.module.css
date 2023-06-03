@@ -2,7 +2,7 @@
     background: #fff;
     top: 20px;
     bottom: 20px;
-    right: 100px; /* 40px */
-    left: 100px;  /* 40px */
+    right: 50px; /* 40px */
+    left: 50px;  /* 40px */
     border-radius: var(--border-radius);
 }

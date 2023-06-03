@@ -1,50 +1,18 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC, useEffect } from 'react';
 import styles from "./Login.module.css";
 import Logo from "../../images/WhatsApp-Logo.png";
+import {useAppContext} from "../../context/ContextProvider";
 
-interface LoginProps {
-    setIsAuth: any;
-}
 
-export const Login: FC<LoginProps> = ({setIsAuth}) => {
-    const [id, setId] = useState("")
-    const [token, setToken] = useState("")
+export const Login: FC = () => {
+    const {id, setId, token, setToken, isAuthorized, getAuthorized} = useAppContext()
 
     useEffect(() => {
-        const id = localStorage.getItem("IdInstance")
-        const token = localStorage.getItem("ApiTokenInstance")
-        if(id !== null && token !== null) {
-            fetch(`https://api.green-api.com/waInstance${id}/getStateInstance/${token}`, {
-                method: "GET",
-                headers: {
-                    "Content-Type": "application/json"
-                }
-            })
-                .then(res => res.json())
-                .then(res => {
-                    if(res.stateInstance === "authorized") {
-                        setIsAuth((prev: boolean) => !prev)
-                    }
-                })
-        }
+        isAuthorized()
     }, [])
 
     const handleClick = () => {
-        fetch(`https://api.green-api.com/waInstance${id}/getStateInstance/${token}`, {
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json"
-            }
-        })
-            .then(res => res.json())
-            .then(res => {
-                console.log(res)
-                if(res.stateInstance === "authorized") {
-                    localStorage.setItem("IdInstance", id)
-                    localStorage.setItem("ApiTokenInstance", token)
-                    setIsAuth((prev: boolean) => !prev)
-                }
-            })
+        getAuthorized()
     }
 
     return (
