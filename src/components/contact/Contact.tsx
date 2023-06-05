@@ -1,4 +1,4 @@
-import React, {FC, useEffect} from 'react';
+import React, {FC} from 'react';
 
 import Avatar from "../../images/avatar.png"
 
@@ -35,7 +35,7 @@ export const Contact: FC<ContactProps> = ({
             className={`${styles.contact} ${isActive ? styles.contact_active : ""} flex rel aic`}
         >
             <div className={`${styles.logo} rel flex aic`}>
-                <a className={styles.user} href="/">
+                <a className={styles.user} href="#">
                     <img src={Avatar} alt=""/>
                 </a>
             </div>

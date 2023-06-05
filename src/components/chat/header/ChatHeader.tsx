@@ -15,7 +15,7 @@ export const ChatHeader: FC<ChatHeaderProps> = ({name}) => {
     return (
         <div className={`${styles.header} flex`}>
             <div className={`${styles.logo} rel flex aic`}>
-                <a className={styles.user} href="/">
+                <a className={styles.user} href="#">
                     <img src={Avatar} alt=""/>
                 </a>
                 <div className={`${styles.meta}`}>

@@ -28,7 +28,7 @@ export const MainBar: FC<MainBarProps> = ({open, setOpen, chats, setChats}) => {
         <div className={`${styles.sidebar}  ${open ? 'none' : 'flex rel col'}`}>
             <div className={`${styles.header} flex`}>
                 <div className={`${styles.logo} rel flex aic`}>
-                    <a className={styles.user} href="/">
+                    <a className={styles.user} href="#">
                         <img src={Avatar} alt=""/>
                     </a>
                 </div>
@@ -41,17 +41,24 @@ export const MainBar: FC<MainBarProps> = ({open, setOpen, chats, setChats}) => {
             <Search chats={chats} setChats={setChats} placeholder={"Поиск или новый чат"} />
 
             <div className={`${styles.contacts_list} rel`}>
-                {chats
-                    ?.map(({id, name, msg, stamp}: ChatItem) =>
-                    <Contact
-                        id={id}
-                        key={id}
-                        isActive={active === id}
-                        setActive={setActive}
-                        name={name}
-                        msg={msg[msg?.length-1]}
-                        stamp={stamp}
-                    />
+                {chats.length === 0 ?
+                    (
+                        <p className={`${styles.p_mock}`}>Здесь будут ваши чаты</p>
+                    ) :
+                    (
+                        <>
+                            {chats?.map(({id, name, msg, stamp}: ChatItem) =>
+                                <Contact
+                                    id={id}
+                                    key={id}
+                                    isActive={active === id}
+                                    setActive={setActive}
+                                    name={name}
+                                    msg={msg[msg?.length-1]}
+                                    stamp={stamp}
+                                />
+                            )}
+                        </>
                 )}
             </div>
         </div>

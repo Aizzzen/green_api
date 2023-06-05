@@ -15,8 +15,6 @@ export const AppContextProvider: FC<AppContextProps> = ({children}) => {
 
     const [chats, setChats] = useState([
         {"id": 1, "name": "+79622582626", "msg": ["Ты закончил тестовое", ], "stamp": new Date()},
-        {"id": 2, "name": "89622582626", "msg": ["Ты не закончил тестовое", ], "stamp":  new Date()},
-        {"id": 3, "name": "+79622532626", "msg": ["Ты закончишь тестовое", ], "stamp":  new Date()},
         {"id": 4, "name": "89622282626", "msg": ["Скегодгня", ], "stamp":  new Date()},
         {"id": 5, "name": "+79622584626", "msg": ["Сегодня", ], "stamp":  new Date()},
     ])
