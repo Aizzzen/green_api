@@ -3,8 +3,8 @@ import styles from "./ChatMain.module.css";
 import {Message} from "./message/Message";
 
 interface ChatMainProps {
-    name?: string;
-    msg?: any;
+    name: string;
+    msg: string[];
 }
 
 export const ChatMain: FC<ChatMainProps> = ({name, msg}) => {

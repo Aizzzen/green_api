@@ -10,18 +10,20 @@ import {Contact} from "../../contact/Contact";
 export type ChatItem = {
     id: number;
     name: string;
-    msg: string;
+    msg: string[];
     stamp: string;
 }
 
 interface MainBarProps {
-    open: any;
-    setOpen: any;
-    chats: any;
+    open: boolean;
+    setOpen: (value: boolean) => void;
+    chats: ChatItem[];
+    setChats: (value: ChatItem[]) => void;
 }
 
-export const MainBar: FC<MainBarProps> = ({open, setOpen, chats}) => {
-    const [active, setActive] = useState(null)
+export const MainBar: FC<MainBarProps> = ({open, setOpen, chats, setChats}) => {
+    const [active, setActive] = useState(-1)
+
     return (
         <div className={`${styles.sidebar}  ${open ? 'none' : 'flex rel col'}`}>
             <div className={`${styles.header} flex`}>
@@ -36,19 +38,19 @@ export const MainBar: FC<MainBarProps> = ({open, setOpen, chats}) => {
                 </div>
             </div>
 
-            <Search placeholder={"Поиск или новый чат"} />
+            <Search chats={chats} setChats={setChats} placeholder={"Поиск или новый чат"} />
 
             <div className={`${styles.contacts_list} rel`}>
                 {chats
-                    .sort((a: any, b: any) => b - a)
-                    .map(({id, name, msg, stamp}: ChatItem) =>
+                    ?.sort((a: any, b: any) => b - a)
+                    ?.map(({id, name, msg, stamp}: ChatItem) =>
                     <Contact
                         id={id}
                         key={id}
                         isActive={active === id}
                         setActive={setActive}
                         name={name}
-                        msg={msg[msg.length-1]}
+                        msg={msg[msg?.length-1]}
                         stamp={stamp}
                     />
                 )}

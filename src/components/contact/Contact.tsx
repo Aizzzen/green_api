@@ -1,4 +1,4 @@
-import React, {FC} from 'react';
+import React, {FC, useEffect} from 'react';
 
 import Avatar from "../../images/avatar.png"
 
@@ -11,7 +11,7 @@ interface ContactProps {
     msg?: string;
     stamp?: string;
     isActive?: boolean;
-    setActive?: any;
+    setActive: (value: number) => void;
 }
 
 export const Contact: FC<ContactProps> = ({
@@ -24,9 +24,9 @@ export const Contact: FC<ContactProps> = ({
 }) => {
     const {setSelectedChat} = useAppContext()
 
-    const handleClick = (id: number) => {
-        setSelectedChat(id)
-        setActive(id)
+    const handleClick = (ID: number) => {
+        setSelectedChat(ID)
+        setActive(ID)
     }
 
     return (

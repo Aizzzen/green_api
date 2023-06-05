@@ -3,8 +3,8 @@ import styles from "./Message.module.css";
 
 interface MessageProps {
     order: string;
-    name?: string;
-    msg?: string;
+    name: string;
+    msg: string;
 }
 
 export const Message: FC<MessageProps> = ({order, name, msg}) => {

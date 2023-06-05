@@ -1,45 +1,48 @@
 import React, { FC, useState } from 'react';
 import styles from "./Search.module.css";
 import SearchIcon from "../../../images/search.svg";
+import {ChatItem} from "../main/MainBar";
 
 interface SearchProps {
     placeholder: string;
-    chats?: any;
-    setChats?: any;
-    setOpen?: any;
+    chats?: ChatItem[];
+    setChats?: (value: ChatItem[]) => void;
+    setOpen?: (value: boolean) => void;
 }
 
 export const Search: FC<SearchProps> = ({placeholder, chats, setChats, setOpen}) => {
-    const [search, setSearch] = useState('')
+    const [search, setSearch] = useState("")
 
     return (
         <div className={`${styles.search} flex`}>
             <div className={`${styles.search_box} flex aic`}>
                 <img className={styles.icon_size} src={SearchIcon} alt=""/>
-                {!chats && <input
+                <input
                     className="s16"
                     type="text"
-                    placeholder={placeholder}
-                />}
-                {chats && <input
-                    className="s16"
-                    type="text"
+                    value={search}
                     placeholder={placeholder}
                     onChange={e => setSearch(e.target.value)}
                     onKeyPress={e => {
-                        if(e.key === "Enter") {
-                            chats.unshift(
+                        if(e.key === "Enter" && search.length > 0) {
+                            // @ts-ignore
+                            setChats((prev) => [
                                 {
-                                    "id": `${Math.random()}`.substr(2),
+                                    "id": Number(`${Math.random()}`.substr(2)),
                                     "name": search,
                                     "msg": [],
                                     "stamp": `${new Date().toLocaleTimeString('ru-RU')}`
-                                }
-                            )
-                            setOpen(false)
+                                },
+                                ...prev
+                            ])
+                            if(placeholder === "Введите номер телефона") {
+                                // @ts-ignore
+                                setOpen(false)
+                            }
+                            setSearch("")
                         }
                     }}
-                />}
+                />
             </div>
         </div>
     );

@@ -67,9 +67,12 @@ export const AppContextProvider: FC<AppContextProps> = ({children}) => {
         const id = localStorage.getItem("IdInstance")
         const token = localStorage.getItem("ApiTokenInstance")
         let msg = {
-            "chatId": `${chatId+"@c.us"}`.slice(1),
+            "chatId": "",
             "message": message,
         }
+        const number = chatId.split("")
+        number[0] === "8" ? number[0]="7" : number.shift()
+        msg.chatId = number.join("")+"@c.us"
         fetch(`https://api.green-api.com/waInstance${id}/sendMessage/${token}`, {
             method: "POST",
             headers: {

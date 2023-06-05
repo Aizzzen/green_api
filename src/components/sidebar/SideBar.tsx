@@ -23,6 +23,7 @@ export const SideBar: FC = () => {
                         open={open}
                         setOpen={setOpen}
                         chats={chats}
+                        setChats={setChats}
                     />
                 )
             }

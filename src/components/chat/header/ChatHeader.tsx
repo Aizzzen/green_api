@@ -20,7 +20,7 @@ export const ChatHeader: FC<ChatHeaderProps> = ({name}) => {
                 </a>
                 <div className={`${styles.meta}`}>
                     <h2 className={`${styles.name} s14 b`}>{name}</h2>
-                    <h2 className={`${styles.status} s13 c777`}>Last seen 3 minutes ago</h2>
+                    <h2 className={`${styles.status} s13 c777`}>был(а) недавно</h2>
                 </div>
             </div>
             <div className={`${styles.actions} rel flex aic`}>

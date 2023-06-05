@@ -5,14 +5,15 @@ import EmojiIcon from "../../../images/insert_emoticon.svg";
 import FileIcon from "../../../images/paperclip.svg";
 import SendIcon from "../../../images/send.svg";
 import {useAppContext} from "../../../context/ContextProvider";
+import {ChatItem} from "../../sidebar/main/MainBar";
 
 interface ChatInputProps {
-    name: any;
-    msg: any;
+    name: string;
+    msg: string[];
 }
 
 export const ChatInput: FC<ChatInputProps> = ({name, msg}) => {
-    const {sendMessage} = useAppContext()
+    const {setLoaded, chats, setChats, selectedChat, sendMessage} = useAppContext()
     const [text, setText] = useState("")
 
     const handleChange = (e: any): any => {
@@ -21,9 +22,23 @@ export const ChatInput: FC<ChatInputProps> = ({name, msg}) => {
     }
 
     const handleClick = () => {
-        msg.push(text)
+        // msg.push(text)
+
+        setLoaded(false)
+        chats.forEach((item: ChatItem) => {
+            if(item.id === selectedChat) {
+                if(item.id === selectedChat) {
+                    item?.msg?.push(text)
+                } else {
+                    return
+                }
+            }
+        });
+        setChats(chats)
         sendMessage(name, text)
         setText("")
+        console.log(chats)
+        setLoaded(true)
     }
 
     return (
@@ -39,7 +54,7 @@ export const ChatInput: FC<ChatInputProps> = ({name, msg}) => {
             <img
                 className={`${styles.iconSize}`}
                 src={SendIcon} alt=""
-                onClick={handleClick}
+                onClick={text.length > 0 ? handleClick : undefined}
             />
         </div>
     );
