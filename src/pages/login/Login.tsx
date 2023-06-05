@@ -11,7 +11,9 @@ export const Login: FC = () => {
         isAuthorized()
     }, [])
 
-    const handleClick = () => {
+    const handleClick = (e: any
+    ) => {
+        e.preventDefault()
         getAuthorized()
     }
 
@@ -24,17 +26,35 @@ export const Login: FC = () => {
                     alt=""/>
                 <h2 className={`${styles.title} s16`}>Логин в WhatsApp</h2>
 
-                {/*<form action="" onSubmit={handleClick}>*/}
+                <form>
                     <div className={styles.input_group}>
-                        <input value={id} onChange={(e) => setId(e.target.value)} className="s16" type="text" name="" id="text1" placeholder=" " autoComplete="off"/>
+                        <input
+                            value={id}
+                            onChange={(e) => setId(e.target.value)}
+                            className="s16"
+                            type="text"
+                            name=""
+                            id="text1"
+                            placeholder=" "
+                            autoComplete="off"
+                        />
                         <label htmlFor="text1">IdInstance</label>
                     </div>
                     <div className={styles.input_group}>
-                        <input value={token} onChange={(e) => setToken(e.target.value)} className="s16" type="text" name="" id="text2" placeholder=" " autoComplete="off"/>
+                        <input
+                            value={token}
+                            onChange={(e) => setToken(e.target.value)}
+                            className="s16"
+                            type="text"
+                            name=""
+                            id="text2"
+                            placeholder=" "
+                            autoComplete="off"
+                        />
                         <label htmlFor="text2">ApiTokenInstance</label>
                     </div>
-                    <button onClick={handleClick} className={`${styles.sub_button} b`}>Авторизоваться</button>
-                {/*</form>*/}
+                    <button onClick={e => handleClick(e)} className={`${styles.sub_button} b`}>Авторизоваться</button>
+                </form>
             </div>
         </>
     );

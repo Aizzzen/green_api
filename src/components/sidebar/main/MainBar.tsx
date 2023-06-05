@@ -11,7 +11,7 @@ export type ChatItem = {
     id: number;
     name: string;
     msg: string[];
-    stamp: string;
+    stamp: Date;
 }
 
 interface MainBarProps {
@@ -42,7 +42,6 @@ export const MainBar: FC<MainBarProps> = ({open, setOpen, chats, setChats}) => {
 
             <div className={`${styles.contacts_list} rel`}>
                 {chats
-                    ?.sort((a: any, b: any) => b - a)
                     ?.map(({id, name, msg, stamp}: ChatItem) =>
                     <Contact
                         id={id}

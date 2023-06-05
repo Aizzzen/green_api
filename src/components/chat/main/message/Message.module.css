@@ -5,11 +5,10 @@
 
 .content {
     background: #fff;
-    display: table;
     padding: 4px 6px;
     /*padding: 7px 60px 7px 10px;*/
     border-radius: 8px;
-    max-width: 450px;
+    max-width: 350px;
 }
 
 .content:before {
@@ -42,17 +41,17 @@
 }
 
 .text {
+    overflow-wrap: break-word;
     padding: 4px 0;
     margin-bottom: 20px;
 }
 
 .mine {
     background: #d9fdd3;
-    display: table;
     padding: 4px 6px;
     /*padding: 7px 60px 7px 10px;*/
     border-radius: 8px;
-    max-width: 450px;
+    max-width: 350px;
 }
 
 .mine:before {

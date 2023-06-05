@@ -5,7 +5,7 @@ import {ChatItem} from "../main/MainBar";
 
 interface SearchProps {
     placeholder: string;
-    chats?: ChatItem[];
+    chats?: any;
     setChats?: (value: ChatItem[]) => void;
     setOpen?: (value: boolean) => void;
 }
@@ -26,14 +26,14 @@ export const Search: FC<SearchProps> = ({placeholder, chats, setChats, setOpen})
                     onKeyPress={e => {
                         if(e.key === "Enter" && search.length > 0) {
                             // @ts-ignore
-                            setChats((prev) => [
+                            setChats([
                                 {
                                     "id": Number(`${Math.random()}`.substr(2)),
                                     "name": search,
                                     "msg": [],
                                     "stamp": `${new Date().toLocaleTimeString('ru-RU')}`
                                 },
-                                ...prev
+                                ...chats
                             ])
                             if(placeholder === "Введите номер телефона") {
                                 // @ts-ignore

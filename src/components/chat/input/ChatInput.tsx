@@ -22,22 +22,20 @@ export const ChatInput: FC<ChatInputProps> = ({name, msg}) => {
     }
 
     const handleClick = () => {
-        // msg.push(text)
-
         setLoaded(false)
         chats.forEach((item: ChatItem) => {
             if(item.id === selectedChat) {
                 if(item.id === selectedChat) {
                     item?.msg?.push(text)
+                    item.stamp = new Date()
                 } else {
                     return
                 }
             }
         });
-        setChats(chats)
+        setChats([...chats])
         sendMessage(name, text)
         setText("")
-        console.log(chats)
         setLoaded(true)
     }
 

@@ -9,7 +9,7 @@ interface ContactProps {
     id: number;
     name: string;
     msg?: string;
-    stamp?: string;
+    stamp?: Date;
     isActive?: boolean;
     setActive: (value: number) => void;
 }
@@ -32,7 +32,6 @@ export const Contact: FC<ContactProps> = ({
     return (
         <div
             onClick={() => handleClick(id)}
-            // onClick={() => setActive(id)}
             className={`${styles.contact} ${isActive ? styles.contact_active : ""} flex rel aic`}
         >
             <div className={`${styles.logo} rel flex aic`}>
@@ -53,7 +52,10 @@ export const Contact: FC<ContactProps> = ({
                 {
                     stamp &&
                     <div className={`${styles.extra} rel flex col aic`}>
-                        <h2 className={`${styles.stamp} s11 c777`}>{stamp.substr(0, 5)}</h2>
+
+                        <h2 className={`${styles.stamp} s11 c777`}>
+                            {typeof stamp === 'object' && true && 'getHours' in stamp && stamp?.getHours() + ":" + stamp?.getMinutes()}
+                        </h2>
                         <div className={`${styles.badge} rel s12 cfff`}>
                             99+
                         </div>

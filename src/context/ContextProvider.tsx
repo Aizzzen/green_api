@@ -14,11 +14,11 @@ export const AppContextProvider: FC<AppContextProps> = ({children}) => {
     const [selectedChat, setSelectedChat] = useState(-1)
 
     const [chats, setChats] = useState([
-        {"id": 1, "name": "Yunus Gadamurov", "msg": ["Ты закончил тестовое", ], "stamp": `${new Date().toLocaleTimeString('ru-RU')}`},
-        {"id": 2, "name": "Yunus", "msg": ["Ты не закончил тестовое", ], "stamp": `${new Date().toLocaleTimeString('ru-RU')}`},
-        {"id": 3, "name": "Gadamurov", "msg": ["Ты закончишь тестовое", ], "stamp": `${new Date().toLocaleTimeString('ru-RU')}`},
-        {"id": 4, "name": "Vasya", "msg": ["Скегодгня", ], "stamp": `${new Date().toLocaleTimeString('ru-RU')}`},
-        {"id": 5, "name": "Yu", "msg": ["Сегодня", ], "stamp": `${new Date().toLocaleTimeString('ru-RU')}`},
+        {"id": 1, "name": "+79622582626", "msg": ["Ты закончил тестовое", ], "stamp": new Date()},
+        {"id": 2, "name": "89622582626", "msg": ["Ты не закончил тестовое", ], "stamp":  new Date()},
+        {"id": 3, "name": "+79622532626", "msg": ["Ты закончишь тестовое", ], "stamp":  new Date()},
+        {"id": 4, "name": "89622282626", "msg": ["Скегодгня", ], "stamp":  new Date()},
+        {"id": 5, "name": "+79622584626", "msg": ["Сегодня", ], "stamp":  new Date()},
     ])
 
     const getAuthorized = () => {
