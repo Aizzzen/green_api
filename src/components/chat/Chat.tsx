@@ -19,9 +19,9 @@ export const Chat: FC = () => {
                     <div className={`${styles.chat_background}`}/>
                 ) : (
                     <>
-                        <ChatHeader name={chat?.name}/>
-                        <ChatMain name={chat?.name} msg={chat?.msg}/>
-                        <ChatInput name={chat?.name} msg={chat?.msg}/>
+                        <ChatHeader number={chat?.number}/>
+                        <ChatMain number={chat?.number} msg={chat?.msg}/>
+                        <ChatInput number={chat?.number} msg={chat?.msg}/>
                     </>
                 )
             }

@@ -5,7 +5,11 @@ import {Login} from "./pages/login/Login";
 import {useAppContext} from "./context/ContextProvider";
 
 function App() {
-    const {loaded, isAuth} = useAppContext()
+    const {loaded, isAuth, receiveAndDelete} = useAppContext()
+
+    setTimeout(() => {
+        receiveAndDelete()
+    }, 5000)
 
     return (
         <div>

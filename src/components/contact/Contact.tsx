@@ -7,7 +7,7 @@ import {useAppContext} from "../../context/ContextProvider";
 
 interface ContactProps {
     id: number;
-    name: string;
+    number: string;
     msg?: string;
     stamp?: Date;
     isActive?: boolean;
@@ -16,7 +16,7 @@ interface ContactProps {
 
 export const Contact: FC<ContactProps> = ({
                                               id,
-                                              name,
+                                              number,
                                               msg,
                                               stamp,
                                               isActive,
@@ -41,7 +41,7 @@ export const Contact: FC<ContactProps> = ({
             </div>
             <div className={`${styles.meta} rel flex aic`}>
                 <div className={`${styles.info} rel flex col`}>
-                    <h2 className={`${styles.name} b s14 wordwrap`}>{name}</h2>
+                    <h2 className={`${styles.name} b s14 wordwrap`}>{number}</h2>
                     {
                         msg &&
                         <h2 className={`${styles.msg} s13 c333 wordwrap`}>
@@ -54,7 +54,12 @@ export const Contact: FC<ContactProps> = ({
                     <div className={`${styles.extra} rel flex col aic`}>
 
                         <h2 className={`${styles.stamp} s11 c777`}>
-                            {typeof stamp === 'object' && true && 'getHours' in stamp && stamp?.getHours() + ":" + stamp?.getMinutes()}
+                            {
+                                typeof stamp === 'object' &&
+                                true &&
+                                'getHours' in stamp &&
+                                stamp?.getHours() + ":" + (Number(stamp?.getMinutes()) < 10 ? "0" + stamp?.getMinutes() : stamp?.getMinutes())
+                            }
                         </h2>
                         <div className={`${styles.badge} rel s12 cfff`}>
                             99+

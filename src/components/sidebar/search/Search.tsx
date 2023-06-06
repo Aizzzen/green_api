@@ -27,7 +27,7 @@ export const Search: FC<SearchProps> = ({placeholder, chats, setChats, setOpen})
                     onChange={e => setSearch(e.target.value)}
                     onKeyPress={e => {
                         if(e.key === "Enter" && search.length > 0) {
-                            let item = chats.filter((item: ChatItem) => item.name === search.trim())[0]
+                            let item = chats.filter((item: ChatItem) => item.number === search.trim())[0]
                             if(item) {
                                 alert("Чат с указанным пользователем уже существует.\nНажмите на OK чтобы перейти к чату")
                                 setSelectedChat(item.id)
@@ -36,7 +36,8 @@ export const Search: FC<SearchProps> = ({placeholder, chats, setChats, setOpen})
                                 setChats([
                                     {
                                         "id": Number(`${Math.random()}`.substr(2)),
-                                        "name": search.trim(),
+                                        "name": "",
+                                        "number": search.trim(),
                                         "msg": [],
                                         "stamp": `${new Date().toLocaleTimeString('ru-RU')}`
                                     },

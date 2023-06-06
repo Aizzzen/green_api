@@ -8,11 +8,11 @@ import {useAppContext} from "../../../context/ContextProvider";
 import {ChatItem} from "../../sidebar/main/MainBar";
 
 interface ChatInputProps {
-    name: string;
+    number: string;
     msg: string[];
 }
 
-export const ChatInput: FC<ChatInputProps> = ({name, msg}) => {
+export const ChatInput: FC<ChatInputProps> = ({number, msg}) => {
     const {setLoaded, chats, setChats, selectedChat, sendMessage} = useAppContext()
     const [text, setText] = useState("")
 
@@ -34,7 +34,7 @@ export const ChatInput: FC<ChatInputProps> = ({name, msg}) => {
             }
         });
         setChats([...chats])
-        sendMessage(name, text)
+        sendMessage(number, text)
         setText("")
         setLoaded(true)
     }

@@ -14,10 +14,33 @@ export const AppContextProvider: FC<AppContextProps> = ({children}) => {
     const [selectedChat, setSelectedChat] = useState(-1)
 
     const [chats, setChats] = useState([
-        {"id": 1, "name": "+79622582626", "msg": ["Ты закончил тестовое", ], "stamp": new Date()},
-        {"id": 4, "name": "89622282626", "msg": ["Скегодгня", ], "stamp":  new Date()},
-        {"id": 5, "name": "+79622584626", "msg": ["Сегодня", ], "stamp":  new Date()},
+        {
+            id: 1,
+            chatId: "79324318643@c.us", //название + от кого сообщения
+            msg: [
+                {
+                    text: "Ты закончил тестовое",
+                    stamp: "" ,
+                    senderId: "",
+                }
+            ],
+        },
+        {
+            id: 2,
+            chatId: "77086930735@c.us",
+            msg: [
+                {
+                    text: "Ты закончил тестовое",
+                    stamp: "" ,
+                    senderId: "",
+                }
+            ],
+        },
+        // {"id": 4, "name": "", "number": "89622282626", "msg": ["Скегодгня", ], "stamp":  new Date()},
+        // {"id": 5, "name": "", "number": "+79622584626", "msg": ["Сегодня", ], "stamp":  new Date()},
     ])
+
+    const [chats2, setChats2] = useState([] as any)
 
     const getAuthorized = () => {
         setLoaded(false)
@@ -82,6 +105,55 @@ export const AppContextProvider: FC<AppContextProps> = ({children}) => {
         setLoaded(true)
     }
 
+
+    const receiveAndDelete = async () => {
+        const id = localStorage.getItem("IdInstance")
+        const token = localStorage.getItem("ApiTokenInstance")
+        let receiptId: number = 0
+        if(id !== null && token !== null) {
+            await fetch(`https://api.green-api.com/waInstance${id}/receiveNotification/${token}`, {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            })
+                .then(res => res.json())
+                .then(res => {
+                    if(res !== null) {
+                        receiptId = res.receiptId
+                        console.log(receiptId)
+                        console.log(res.body.typeWebhook)
+                        console.log(res.body)
+                        if(
+                            res.body.typeWebhook === "incomingMessageReceived" &&
+                            res.body.messageData.typeMessage === "textMessage"
+                        ) {
+                            chats.forEach((item: any) => {
+                                if(res.body.senderData.chatId === item.chatId) {
+                                    item.msg.push({
+                                        "text": res.body.messageData.textMessageData.textMessage,
+                                        "stamp": res.body.timestamp,
+                                        "senderId": res.body.senderData.sender,
+                                    })
+                                }
+                            });
+                            setChats([...chats])
+                            console.log(chats)
+                        }
+                    }
+                })
+            await fetch(`https://api.green-api.com/waInstance${id}/deleteNotification/${token}/${receiptId}`, {
+                method: "DELETE",
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            })
+                .then(res => res.json())
+                .then(console.log)
+        }
+    }
+
+
     return (
         <AppContext.Provider
             value={{
@@ -97,9 +169,12 @@ export const AppContextProvider: FC<AppContextProps> = ({children}) => {
                 setSelectedChat,
                 chats,
                 setChats,
+                chats2,
+                setChats2,
                 getAuthorized,
                 isAuthorized,
                 sendMessage,
+                receiveAndDelete
             }}
         >
             {children}

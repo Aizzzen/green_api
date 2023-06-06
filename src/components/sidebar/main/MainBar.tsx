@@ -9,7 +9,7 @@ import {Contact} from "../../contact/Contact";
 
 export type ChatItem = {
     id: number;
-    name: string;
+    number: string;
     msg: string[];
     stamp: Date;
 }
@@ -47,13 +47,13 @@ export const MainBar: FC<MainBarProps> = ({open, setOpen, chats, setChats}) => {
                     ) :
                     (
                         <>
-                            {chats?.map(({id, name, msg, stamp}: ChatItem) =>
+                            {chats?.map(({id, number, msg, stamp}: ChatItem) =>
                                 <Contact
                                     id={id}
                                     key={id}
                                     isActive={active === id}
                                     setActive={setActive}
-                                    name={name}
+                                    number={number}
                                     msg={msg[msg?.length-1]}
                                     stamp={stamp}
                                 />
