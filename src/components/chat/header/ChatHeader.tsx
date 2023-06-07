@@ -8,10 +8,10 @@ import MoreIcon from "../../../images/more_vert.svg";
 
 
 interface ChatHeaderProps {
-    number?: string;
+    chatId?: string;
 }
 
-export const ChatHeader: FC<ChatHeaderProps> = ({number}) => {
+export const ChatHeader: FC<ChatHeaderProps> = ({chatId}) => {
     return (
         <div className={`${styles.header} flex`}>
             <div className={`${styles.logo} rel flex aic`}>
@@ -19,7 +19,7 @@ export const ChatHeader: FC<ChatHeaderProps> = ({number}) => {
                     <img src={Avatar} alt=""/>
                 </a>
                 <div className={`${styles.meta}`}>
-                    <h2 className={`${styles.name} s14 b`}>{number}</h2>
+                    <h2 className={`${styles.name} s14 b`}>{chatId}</h2>
                     <h2 className={`${styles.status} s13 c777`}>был(а) недавно</h2>
                 </div>
             </div>

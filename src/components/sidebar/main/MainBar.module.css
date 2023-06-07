@@ -59,3 +59,23 @@
     justify-content: center;
     margin-top: 50px;
 }
+
+.new_messages_button {
+    cursor: pointer;
+    border: none;
+    font-size: 13px;
+    margin: 4px auto;
+    padding: 0 4px;
+    border-radius: var(--border-radius);
+    background-color: var(--primary);
+    color: #fff;
+}
+
+.new_messages_button:hover {
+    background-color: #02D0A4FF;
+}
+
+.new_messages_button:active {
+    background-color: #fff;
+    color: var(--primary);
+}

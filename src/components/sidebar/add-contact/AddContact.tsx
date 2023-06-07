@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import styles from "./AddContact.module.css";
 import GoBackIcon from "../../../images/keyboard_backspace.svg";
 import {Search} from "../search/Search";
-import {ChatItem} from "../main/MainBar";
+import {ChatItem} from "../../../types";
 
 
 interface AddContactProps {
@@ -20,12 +20,10 @@ export const AddContact: FC<AddContactProps> = ({setOpen, chats, setChats}) => {
                     <p>Вернуться к списку чатов</p>
                 </div>
             </div>
-
             <Search setOpen={setOpen} chats={chats} setChats={setChats} placeholder={"Введите номер телефона"}/>
-
-            <div className={`${styles.add_contact_list}`}>
-
-            </div>
+            {/*<div className={`${styles.add_contact_list}`}>*/}
+            {/*    */}
+            {/*</div>*/}
         </div>
     );
 };

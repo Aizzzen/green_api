@@ -1,40 +1,56 @@
-import React, {FC, useState} from 'react';
+import React, {FC, MouseEventHandler, SetStateAction, useState} from 'react';
 import styles from "./ChatInput.module.css";
 
 import EmojiIcon from "../../../images/insert_emoticon.svg";
 import FileIcon from "../../../images/paperclip.svg";
 import SendIcon from "../../../images/send.svg";
 import {useAppContext} from "../../../context/ContextProvider";
-import {ChatItem} from "../../sidebar/main/MainBar";
+import {whatsAppApi} from "../../../api";
+import {ChatItem, msgSend} from "../../../types";
 
 interface ChatInputProps {
-    number: string;
-    msg: string[];
+    chatId: string;
 }
 
-export const ChatInput: FC<ChatInputProps> = ({number, msg}) => {
-    const {setLoaded, chats, setChats, selectedChat, sendMessage} = useAppContext()
+export const ChatInput: FC<ChatInputProps> = ({chatId}) => {
+    const {setLoaded, chats, setChats, selectedChat} = useAppContext()
     const [text, setText] = useState("")
 
-    const handleChange = (e: any): any => {
+    const handleChange = (e: { target: { value: SetStateAction<string> } }) => {
         setText(e.target.value)
         console.log(text)
     }
 
-    const handleClick = () => {
+    const handleClick: MouseEventHandler<HTMLImageElement> = () => {
         setLoaded(false)
         chats.forEach((item: ChatItem) => {
             if(item.id === selectedChat) {
                 if(item.id === selectedChat) {
-                    item?.msg?.push(text)
-                    item.stamp = new Date()
-                } else {
-                    return
+                    item?.msg?.push({
+                        text: text,
+                        stamp: Date.now(),
+                        senderId: "79622582626@c.us",
+                    })
                 }
             }
         });
         setChats([...chats])
-        sendMessage(number, text)
+
+        const id = localStorage.getItem("IdInstance")
+        const token = localStorage.getItem("ApiTokenInstance")
+        let msg: msgSend = {
+            chatId: "",
+            message: text,
+        }
+        const number = chatId.split("")
+        number[0] === "8" ? number[0]="7" : number.shift()
+        msg.chatId = number.join("")+"@c.us"
+
+        if(id && token) {
+            whatsAppApi.sendMessage(id, token, msg)
+        }
+        console.log(msg, "sended msg")
+        console.log(chats, "chats")
         setText("")
         setLoaded(true)
     }

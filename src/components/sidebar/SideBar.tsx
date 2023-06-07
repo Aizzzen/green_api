@@ -7,26 +7,14 @@ import {MainBar} from "./main/MainBar";
 export const SideBar: FC = () => {
     const {chats, setChats} = useAppContext()
     const [open, setOpen] = useState(false)
-    const sortedChats = chats.sort((a: any, b: any) => b.stamp - a.stamp)
+    const sortedChats = chats.sort((a: any, b: any) => b.msg.at(-1)?.stamp - a.msg.at(-1)?.stamp)
 
     return (
         <>
             {open ?
-                (
-                    <AddContact
-                        setOpen={setOpen}
-                        chats={chats}
-                        setChats={setChats}
-                    />
-                ) :
-                (
-                    <MainBar
-                        open={open}
-                        setOpen={setOpen}
-                        chats={sortedChats}
-                        setChats={setChats}
-                    />
-                )
+                (<AddContact setOpen={setOpen} chats={chats} setChats={setChats}/>)
+                :
+                (<MainBar open={open} setOpen={setOpen} chats={sortedChats} setChats={setChats}/>)
             }
         </>
     );

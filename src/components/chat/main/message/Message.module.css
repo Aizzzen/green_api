@@ -9,6 +9,7 @@
     /*padding: 7px 60px 7px 10px;*/
     border-radius: 8px;
     max-width: 350px;
+    display: inline-block;
 }
 
 .content:before {

@@ -1,22 +1,26 @@
 import React, {FC} from 'react';
 import styles from "./ChatMain.module.css";
 import {Message} from "./message/Message";
+import {msgState} from "../../../types";
 
 interface ChatMainProps {
-    number: string;
-    msg: string[];
+    chatId: string;
+    msg: msgState[];
+    myNumber: string
+    phone_number: string
 }
 
-export const ChatMain: FC<ChatMainProps> = ({number, msg}) => {
+export const ChatMain: FC<ChatMainProps> = ({chatId, msg, myNumber, phone_number}) => {
     return (
         <div className={`${styles.messages} rel flex col`}>
             {msg?.map((el: any, i: number) =>
-                <Message number={number} msg={el} key={i} order={"mine"} />
+                <>
+                    {el.senderId === phone_number ?
+                        (<Message chatId={myNumber} msg={el.text} stamp={el.stamp} key={i} order={"mine"} />)
+                        : (<Message chatId={chatId} msg={el.text} stamp={el.stamp} key={i} />)
+                    }
+                </>
             )}
-
-            {/*{[1,1,1,1,1,1,1,1,1,1,1,11,1,1,1].map((el, i) =>*/}
-            {/*    <Message name={name} msg={msg} key={i} order={i % 2 === 0 ? "mine" : ""} />*/}
-            {/*)}*/}
         </div>
     );
 };

@@ -2,19 +2,40 @@ import React, { FC, useEffect } from 'react';
 import styles from "./Login.module.css";
 import Logo from "../../images/WhatsApp-Logo.png";
 import {useAppContext} from "../../context/ContextProvider";
-
+import {whatsAppApi} from "../../api";
 
 export const Login: FC = () => {
-    const {id, setId, token, setToken, isAuthorized, getAuthorized} = useAppContext()
+    const {setLoaded, setIsAuth, id, setId, token, setToken} = useAppContext()
 
     useEffect(() => {
-        isAuthorized()
+        setLoaded(false)
+        const id = localStorage.getItem("IdInstance")
+        const token = localStorage.getItem("ApiTokenInstance")
+        if(id !== null && token !== null) {
+            whatsAppApi
+                .isAuthorized(id, token)
+                .then(res => {
+                    if(res.stateInstance === "authorized") {
+                        setIsAuth(true)
+                    }
+            })
+        }
+        setLoaded(true)
     }, [])
 
-    const handleClick = (e: any
-    ) => {
+    const handleClick = (e: any) => {
         e.preventDefault()
-        getAuthorized()
+        setLoaded(false)
+        whatsAppApi
+            .isAuthorized(id, token)
+            .then(res => {
+                if(res.stateInstance === "authorized") {
+                    localStorage.setItem("IdInstance", id)
+                    localStorage.setItem("ApiTokenInstance", token)
+                    setIsAuth(true)
+                }
+        })
+        setLoaded(false)
     }
 
     return (
