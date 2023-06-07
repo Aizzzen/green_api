@@ -42,6 +42,8 @@ export const whatsAppApi = {
                 .then(res => {
                     if(res !== null) {
                         receiptId = res.receiptId
+                        console.log(receiptId, "resId")
+                        console.log(res, "res")
                         if(
                             res.body.typeWebhook === "incomingMessageReceived" &&
                             res.body.messageData.typeMessage === "textMessage"
@@ -55,47 +57,22 @@ export const whatsAppApi = {
                                     })
                                 }
                             });
+                            console.log(chats)
                             setChats([...chats])
                             if(!localStorage.getItem("phone_number")) {
                                 localStorage.setItem("phone_number", res.body.instanceData.wid)
                             }
                         }
+                        fetch(`https://api.green-api.com/waInstance${id}/deleteNotification/${token}/${receiptId}`, {
+                            method: "DELETE",
+                            headers: {
+                                "Content-Type": "application/json"
+                            }
+                        })
+                            .then(res => res.json())
+                            .then(console.log)
                     }
                 })
-            await fetch(`https://api.green-api.com/waInstance${id}/deleteNotification/${token}/${receiptId}`, {
-                method: "DELETE",
-                headers: {
-                    "Content-Type": "application/json"
-                }
-            })
-                .then(res => res.json())
-                // .then(console.log)
         }
     },
-    // async receiveNotification(id: string, token: string) {
-    //     return await fetch(`https://api.green-api.com/waInstance${id}/receiveNotification/${token}`, {
-    //         method: "GET",
-    //         headers: {
-    //             "Content-Type": "application/json"
-    //         }
-    //     })
-    //         .then(res => res.json())
-    //         .then(res => {
-    //             console.log("from api receive")
-    //             return res
-    //         })
-    // },
-    // async deleteNotification(id: string, token: string, receiptId: number) {
-    //     return await fetch(`https://api.green-api.com/waInstance${id}/deleteNotification/${token}/${receiptId}`, {
-    //         method: "DELETE",
-    //         headers: {
-    //             "Content-Type": "application/json"
-    //         }
-    //     })
-    //         .then(res => res.json())
-    //         .then(res => {
-    //             console.log("from api delete")
-    //             return res
-    //         })
-    // },
 }

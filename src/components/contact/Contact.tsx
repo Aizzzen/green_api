@@ -17,6 +17,7 @@ interface ContactProps {
 export const Contact: FC<ContactProps> = ({id, chatId, msg, stamp, isActive, setActive}) => {
     const {setSelectedChat} = useAppContext()
     stamp = new Date(stamp)
+    console.log(chatId)
     const handleClick = (ID: number) => {
         setSelectedChat(ID)
         setActive(ID)

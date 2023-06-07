@@ -39,7 +39,7 @@ export const Search: FC<SearchProps> = ({placeholder, chats, setChats, setOpen})
                                 setChats([
                                     {
                                         id: Number(`${Math.random()}`.substr(2)),
-                                        chatId: search.trim(),
+                                        chatId: search.trim() + "@c.us",
                                         msg: [],
                                     },
                                     ...chats

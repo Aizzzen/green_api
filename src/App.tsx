@@ -11,11 +11,11 @@ function App() {
     const id = localStorage.getItem("IdInstance")
     const token = localStorage.getItem("ApiTokenInstance")
 
-    setInterval(() => {
-        if(id && token) {
-            whatsAppApi.receiveAndDelete({id, token, chats, setChats});
-        }
-    }, 30000)
+    // setInterval(() => {
+    //     if(id && token) {
+    //         whatsAppApi.receiveAndDelete({id, token, chats, setChats})
+    //     }
+    // }, 5000)
 
 
     return (
