@@ -13,7 +13,7 @@ export const Login: FC = () => {
         const token = localStorage.getItem("ApiTokenInstance")
         if(id !== null && token !== null) {
             whatsAppApi
-                .isAuthorized(id, token)
+                .isAuthorized(id.trim(), token.trim())
                 .then(res => {
                     if(res.stateInstance === "authorized") {
                         setIsAuth(true)
@@ -23,11 +23,11 @@ export const Login: FC = () => {
         setLoaded(true)
     }, [])
 
-    const handleClick = (e: any) => {
+    const handleClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         e.preventDefault()
         setLoaded(false)
         whatsAppApi
-            .isAuthorized(id, token)
+            .isAuthorized(id.trim(), token.trim())
             .then(res => {
                 if(res.stateInstance === "authorized") {
                     localStorage.setItem("IdInstance", id)
@@ -35,7 +35,7 @@ export const Login: FC = () => {
                     setIsAuth(true)
                 }
         })
-        setLoaded(false)
+        setLoaded(true)
     }
 
     return (

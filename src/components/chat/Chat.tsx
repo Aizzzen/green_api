@@ -14,7 +14,7 @@ export const Chat: FC = () => {
     const chat = chats.filter((item: ChatItem) => item.id === selectedChat)[0]
     const phone_number = localStorage.getItem("phone_number")
     const chatId = utils.normalNumber(chat?.chatId)
-    const myNumber = utils.normalNumber(phone_number as string)
+    const myNumber = utils.normalNumber(phone_number as string, 11)
 
     return (
         <div className={`${styles.chat} rel flex col`}>

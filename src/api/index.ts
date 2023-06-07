@@ -42,9 +42,6 @@ export const whatsAppApi = {
                 .then(res => {
                     if(res !== null) {
                         receiptId = res.receiptId
-                        console.log(receiptId)
-                        console.log(res.body.typeWebhook)
-                        console.log(res.body)
                         if(
                             res.body.typeWebhook === "incomingMessageReceived" &&
                             res.body.messageData.typeMessage === "textMessage"
@@ -59,7 +56,6 @@ export const whatsAppApi = {
                                 }
                             });
                             setChats([...chats])
-                            console.log(chats)
                             if(!localStorage.getItem("phone_number")) {
                                 localStorage.setItem("phone_number", res.body.instanceData.wid)
                             }
@@ -73,7 +69,7 @@ export const whatsAppApi = {
                 }
             })
                 .then(res => res.json())
-                .then(console.log)
+                // .then(console.log)
         }
     },
     // async receiveNotification(id: string, token: string) {

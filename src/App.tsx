@@ -15,7 +15,7 @@ function App() {
         if(id && token) {
             whatsAppApi.receiveAndDelete({id, token, chats, setChats});
         }
-    }, 15000)
+    }, 30000)
 
 
     return (

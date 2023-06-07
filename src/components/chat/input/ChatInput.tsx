@@ -18,7 +18,6 @@ export const ChatInput: FC<ChatInputProps> = ({chatId}) => {
 
     const handleChange = (e: { target: { value: SetStateAction<string> } }) => {
         setText(e.target.value)
-        console.log(text)
     }
 
     const handleClick: MouseEventHandler<HTMLImageElement> = () => {
@@ -49,8 +48,6 @@ export const ChatInput: FC<ChatInputProps> = ({chatId}) => {
         if(id && token) {
             whatsAppApi.sendMessage(id, token, msg)
         }
-        console.log(msg, "sended msg")
-        console.log(chats, "chats")
         setText("")
         setLoaded(true)
     }
